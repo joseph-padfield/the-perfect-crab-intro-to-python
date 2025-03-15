@@ -1,3 +1,5 @@
+from make_board import create_board, coord_map
+
 # Video alternative: https://vimeo.com/954334009/67af9910fc#t=1054
 
 # So far you've spent a lot of time writing new programs.
@@ -26,14 +28,11 @@
 # This is getting really challenging now — and is entirely optional. Don't
 # forget about your assessment!
 
+from make_board import create_board, coord_map
+
 def play_game():
-  board = [
-    [".", ".", ".", ".", "."],
-    [".", ".", ".", ".", "."],
-    [".", ".", ".", ".", "."],
-    [".", ".", ".", ".", "."],
-    [".", ".", ".", ".", "."],
-  ]
+  # substitute for my board
+  board = create_board(3)
   occupied_coords = []
   player = "X"
   while not is_game_over(board):
@@ -54,6 +53,7 @@ def play_game():
   print("Game over!")
 
 def print_board(board):
+  # should work fine with my board
   formatted_rows = []
   for row in board:
     formatted_rows.append(" ".join(row))
@@ -61,12 +61,15 @@ def print_board(board):
   return grid
 
 def make_move(board, row, column, player):
+  # fine with my board
   board[row][column] = player
   return board
 
 
 # This function will extract three cells from the board
 def get_cells(board, coord_1, coord_2, coord_3, coord_4, coord_5):
+  # this needs to take a variable number of coords
+  # for loop into empty list
   return [
     board[coord_1[0]][coord_1[1]],
     board[coord_2[0]][coord_2[1]],
